@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Happy Valentine's Day</title>
+        <link href="assets/styles/yes_style.css" rel="stylesheet"/>
+        <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    </head>
+    <body>
+        <div class="container">
+            <div >
+                <h1 class = "header_text">I LUV UUUU MY PUKISHH!!</h1>
+                <h1 class = "header_text">HAPPY VALENTINES DAY!!<3</h1>
+            </div>
+             <div class="gif_container">
+                <img class="animated-gif" src="assets/images/sticker.gif">
+            </div>
+        </div>
+        
+        <audio controls loop style="display: none;" id="musicAudio">
+            <source src="assets/sounds/hata.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <audio controls style="display: none;" id="yesAudio">
+            <source src="assets/sounds/glitter.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>    
+        <canvas id="confetti" style="display: none;"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.9.0/dist/js-confetti.browser.js"></script>
+    <script>
+        
+        function playMusic() {
+                const musicAudio = document.getElementById('musicAudio');
+                musicAudio.play();
+        }
+        
+        document.addEventListener('mousemove', playMusic);
+        
+        const jsConfetti = new JSConfetti();
+        function yesButton() {        
+            jsConfetti.addConfetti({
+                emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸', '🎉', '🌟', '🍭', '🌼', '💖', '🦄'],
+                emojiSize: 100,
+                confettiNumber: 100,
+            });
+        }
+        window.onload = yesButton;
+        function confetti() {
+            if (yesImage.style.display !== 'none') {
+                jsConfetti.addConfetti({
+                    emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸', '🎉', '🌟', '🍭', '🌼', '💖', '🦄'],
+                    emojiSize: 100,
+                    confettiNumber: 100,
+                });
+            }
+        }
+        confetti();
+        document.addEventListener('click', confetti);
+        
+    </script>
+    </body>
+</html>

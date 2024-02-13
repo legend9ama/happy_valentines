@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Valentine's Day</title>
+  <link href="assets/styles/style.css" rel="stylesheet"/>
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <style></style>    
+</head>
+ <body>
+        <div class="container">
+            <div>
+                <h1 class="header_text">WILL YOU BE MY VALENTINE MY POOKIE WOOKIE SNOOKIE COOKIE BOOKIE DOOKIE CUTIE PATOOTIE BOOBOO BEAR TOPPED WITH WHIPPED CREAM SPRINKLES AND CHERRY ON TOP?</h1>
+            </div>
+            <div class="gif_container">
+                <img src="assets/images/sticker2.gif" id="valentineImage">
+                <img style="display: none;" src="assets/images/no.png" alt="No" id="noImage">
+                <img style="display: none;" src="assets/images/sticker_angry.gif" alt="No" id="angryImage">
+            </div>
+            <div class="buttons">
+                <button class="btn" id="yesButton" onclick="nextPage()">YESSS!!!!</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()">NO</button>
+                <div id = "clicks"></div>
+                <audio controls loop style="display: none;" id="musicAudio">
+                    <source src="assets/sounds/hata.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <audio controls style="display: none;" id="noAudio">
+                    <source src="assets/sounds/boom.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <audio controls style="display: none;" id="angryAudio">
+                    <source src="assets/sounds/pukish1.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <audio controls style="display: none;" id="yesAudio">
+                    <source src="assets/sounds/glitter.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <script>
+                    function nextPage() {
+                        window.location.href = "yes.html";
+                    }
+                </script>
+            </div>
+        </div>
+    </body>
+    <script>
+        function onWindowLoad() {
+            alert("WARNING!!! PLEASE ANSWER THE FOLLOWING QUESTION CAREFULLY!");
+        }
+        
+        window.onload = onWindowLoad;
+        
+        var count = 0;
+        function moveButton() {
+            count++;
+            var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
+            var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
+            document.getElementById('noButton').style.left = `${x}px`;
+            document.getElementById('noButton').style.top = `${y}px`;
+            if(count < 10){
+            const valentineImage = document.getElementById('valentineImage');
+            valentineImage.style.display = 'none';
+            
+            const noImage = document.getElementById('noImage');
+            noImage.style.display = 'inline-block';
+        
+            const musicAudio = document.getElementById('musicAudio');
+            musicAudio.pause();
+        
+            const noAudio = document.getElementById('noAudio');
+            noAudio.play();
+            } 
+            else{
+                const valentineImage = document.getElementById('valentineImage');
+                valentineImage.style.display = 'none';
+
+                const noImage = document.getElementById('noImage');
+                noImage.style.display = 'none';
+                
+                const angryImage = document.getElementById('angryImage');
+                angryImage.style.display = 'inline-block';
+
+                const musicAudio = document.getElementById('musicAudio');
+                musicAudio.pause();
+
+                const noAudio = document.getElementById('noAudio');
+                noAudio.pause();
+
+                const angryAudio = document.getElementById('angryAudio');
+                angryAudio.play();
+            } 
+            
+            }
+    </script>
+    <canvas id="confetti" style="display: none;"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/js-confetti@0.9.0/dist/js-confetti.browser.js"></script>
+</html>
